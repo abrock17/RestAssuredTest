@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "SpellCheck",
+  "description": "Result of a spell check",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "original": {
+      "type": "string"
+    },
+    "suggestion": {
+      "type": "string"
+    },
+    "corrections": {
+      "type": "object",
+      "patternProperties": {
+        "^.+$": {
+          "description": "word from request to be corrected",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
